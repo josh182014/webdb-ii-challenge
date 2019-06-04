@@ -1,11 +1,11 @@
-const knex = require('knex')
+// const knex = require('knex')
 
-module.exports = {
-    development: {
-        client: 'sqlite3',
-        connection: {
-            filename: './data/lambda.db3'
-        },
-    }
-}
+// module.exports = {
+//     development: {
+//         client: 'sqlite3',
+//         connection: {
+//             filename: './data/lambda.db3'
+//         },
+//     }
+// }
 
