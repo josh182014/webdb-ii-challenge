@@ -72,4 +72,22 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    const changes = req.body
+    db('zoos')
+    .where({id: req.params.id })
+    .update(changes)
+    .then(response => {
+        if (response > 0) {
+        res.status(200).json({message: `${response} records updated.`})
+        }
+        else {
+        res.status(404).json({message: 'Record not found.'})
+        }
+    })
+    .catch(error => {
+        res.status(500).json({message: 'Server error', errorMessage: error})
+    })
+})
+
 module.exports = router;
