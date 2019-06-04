@@ -40,4 +40,21 @@ router.post('/', (req, res) => {
     }
 })
 
+router.get('/:id', (req, res) => {
+    db('zoos').where({id: req.params.id})
+    .first()
+    .then(response => {
+        console.log(response)
+        if (response) {
+            res.status(200).json(response)
+        }
+        else {
+            res.status(404).json("Zoo not found.")
+        }
+    })
+    .catch(error => {
+      res.status(500).json({message: `server error, ${error}`})
+    })
+});
+
 module.exports = router;
